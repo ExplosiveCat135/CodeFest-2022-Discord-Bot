@@ -14,7 +14,7 @@ async def on_ready():
   print("Le educational bot is online and being fishy (as always)")
 
   print("---------------------------------------------")
-  print("The prefix is &\n\n&webiste: to show websites about nuclear energy\n&history: to show glimphs of history about nuclear power plants.")
+  print("The prefix is &\n\n&website: to show websites about nuclear energy\n&history: to show glimphs of history about nuclear power plants.")
   #Prefixes Commands ^^^
   print("---------------------------------------------")
 
@@ -27,7 +27,8 @@ async def on_message(message):
     
     await message.channel.send(Websites[random.randint(0,4)])
 
-  if message.content.startswith("")
+  if message.content.startswith("&basic"):
+    await message.channel.send()
 
   
     
