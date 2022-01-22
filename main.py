@@ -27,7 +27,7 @@ async def on_message(message):
     
     await message.channel.send(Websites[random.randint(0,4)])
 
-  if message.content.startswith("&basic"):
+  if message.content.startswith("&history"):
     await message.channel.send()
 
   
