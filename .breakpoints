@@ -1,3 +1,20 @@
 {
-  "files": {}
+  "files": {
+    "Bad_Words.txt": [
+      {
+        "id": "df31c19a-8732-4d1b-8f50-14c23867aa1f",
+        "line": 1,
+        "version": 0,
+        "index": 0
+      }
+    ],
+    "history_about_nuclear_energy.txt": [
+      {
+        "id": "6e592af4-2057-4ada-a131-c229c509e2d6",
+        "line": 19,
+        "version": 265,
+        "index": 1153
+      }
+    ]
+  }
 }
