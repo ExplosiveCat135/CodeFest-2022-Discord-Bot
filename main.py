@@ -1,9 +1,6 @@
 import discord
 import random
 import os
-from dotenv import load_dotenv
-
-
 
 #DO NOT SPAM IT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Websites = [
@@ -43,17 +40,20 @@ def Readfile(fileName):
     return Very_Fishy_Quotes
     myFile.close()
 
+
 @client.event
 async def on_join(member):
-  await member.create_dm()
-  await member.dm_channel.send(f'Welcome to the codefest 2022 server, {member.name}')
+    await member.create_dm()
+    await member.dm_channel.send(
+        f'Welcome to the codefest 2022 server, {member.name}')
+
 
 @client.event
 async def on_message(message):
-  
+
     if message.author == client.user:
-      return
-    
+        return
+
     fishy_counter = 1
     member = message.author
 
@@ -78,14 +78,16 @@ async def on_message(message):
         await member.dm_channel.send(
             "https://website-on-nuclear-power.harrytait.repl.co/index.html")
 
-    if "fish" in message.content.lower():
-      fishy_counter += 1
-    
-    if message.content.startswith("&fish?"):
-      await member.create_dm()
-      await member.dm_channel.send("Fish has been said " + fishy_counter + " since this bot has been online")
-      await message.channel.send("Fish has been said " + fishy_counter + " since this bot has been online")
+    if "fish" or "FISH" or "Fish" or "fIsh" or "fiSh" or "fisH" or "FIsh" or "fISh" or "fiSH" or "FiSh" or "fIsH" in message.content.lower(
+    ):
+        fishy_counter += 1
 
+    if message.content.startswith("&fish"):
+        await member.create_dm()
+        await member.dm_channel.send("Fish has been said " +
+                                     str(fishy_counter) +
+                                     " since this bot has been online")
+        #await message.channel.send("Fish has been said " + fishy_counter + " since this bot has been online")
 
 
 client.run(Yes)
