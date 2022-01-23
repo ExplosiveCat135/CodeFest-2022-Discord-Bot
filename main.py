@@ -27,7 +27,7 @@ async def on_ready():
 
     print("---------------------------------------------")
     print(
-        "The prefix is &\n\n&website: to show websites about nuclear energy\n&history: to show glimpses of history about nuclear power plants.\n&fact: to show some random facts about nuclear energy\n&main: to show the link to the main website"
+        "The prefix is &\n\n&website: to show websites about nuclear energy\n&history: to show glimpses of history about nuclear power plants.\n&fact: to show some random facts about nuclear energy\n&main: to show the link to the main website\n&fish: to show how many times fish has been sent when this bot is online"
     )
     #Prefixe Commands ^^^
     print("---------------------------------------------")
@@ -78,7 +78,7 @@ async def on_message(message):
         await member.dm_channel.send(
             "https://website-on-nuclear-power.harrytait.repl.co/index.html")
 
-    if "fish" or "Fish" in message.content:
+    if "fish" in message.content.lower():
       fishy_counter += 1
     
     if message.content.startswith("&fish?"):
