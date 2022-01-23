@@ -56,18 +56,22 @@ async def on_message(message):
 
     if message.content.startswith("&history"):
         my_fishy = Readfile("history_about_nuclear_energy.txt")
+        await member.create_dm()
         await member.dm_channel.send(random.choice(my_fishy))
 
     if message.content.startswith("&website"):
+        await member.create_dm()
         await member.dm_channel.send(Websites[random.randint(
             0,
             len(Websites) - 1)])
 
     if message.content.startswith("&fact"):
         facts = Readfile("Facts about nuclear power.txt")
+        await member.create_dm()
         await member.dm_channel.send(random.choice(facts))
 
     if message.content.startswith("&main"):
+        await member.create_dm()
         await member.dm_channel.send(
             "https://website-on-nuclear-power.harrytait.repl.co/index.html")
 
