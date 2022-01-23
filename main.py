@@ -20,7 +20,6 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    
 
     print("The educational bot is online and being fishy (as always)")
 
