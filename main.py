@@ -2,6 +2,7 @@ import discord
 import random
 import os
 
+
 #DO NOT SPAM IT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Websites = [
     "https://www.energy.gov/ne/articles/advantages-and-challenges-nuclear-energy#:~:text=Nuclear%20energy%20protects%20air%20quality,medical%20field%20to%20space%20exploration.",
@@ -12,6 +13,8 @@ Websites = [
     "https://www.encyclopedie-energie.org/en/nuclear-energy-brief-history/"
 ]
 
+
+
 Yes = os.environ['FishySecret']
 Guild = "Faq about nuclear power (Codefest 2022)"
 client = discord.Client()
@@ -19,6 +22,7 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
+    
 
     print("The educational bot is online and being fishy (as always)")
 
@@ -29,6 +33,16 @@ async def on_ready():
     #Prefixe Commands ^^^
     print("---------------------------------------------")
 
+def addtoFile(fileName, newLine):
+    myFile = open(fileName, "a")
+    readFile = open(fileName, "r")
+    fileArray = readFile.read().split("\n")
+    if newLine in fileArray:
+        return False
+    readFile.close()
+    myFile.write(newLine + "\n")
+    myFile.close()
+    return True
 
 def Readfile(fileName):
     myFile = open(fileName, "r")
@@ -53,8 +67,7 @@ async def on_message(message):
 
     if message.author == client.user:
         return
-
-    fishy_counter = 1
+        
     member = message.author
 
     if message.content.startswith("&history"):
@@ -78,16 +91,19 @@ async def on_message(message):
         await member.dm_channel.send(
             "https://website-on-nuclear-power.harrytait.repl.co/index.html")
 
-    if "fish" or "FISH" or "Fish" or "fIsh" or "fiSh" or "fisH" or "FIsh" or "fISh" or "fiSH" or "FiSh" or "fIsH" in message.content.lower(
-    ):
-        fishy_counter += 1
+    for word in Readfile("Fish.txt"):
+      if word in message.content:
+        addtoFile("Counter.txt",word)
+      
 
     if message.content.startswith("&fish"):
-        await member.create_dm()
-        await member.dm_channel.send("Fish has been said " +
-                                     str(fishy_counter) +
-                                     " since this bot has been online")
-        #await message.channel.send("Fish has been said " + fishy_counter + " since this bot has been online")
-
-
-client.run(Yes)
+      Fishy = 0
+      for word in ("Counter.txt"):
+        print("Debug_")
+        Fishy += 1
+      await member.create_dm()
+      await member.dm_channel.send("Fish has been said " +
+      str(Fishy) +
+      " since this bot has been online")
+      #await message.channel.send("Fish has been said " + fishy_counter + " since this bot has been online")
+client.run(Yes))
