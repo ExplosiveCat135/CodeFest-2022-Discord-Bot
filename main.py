@@ -3,6 +3,8 @@ import random
 import os
 from dotenv import load_dotenv
 
+
+
 #DO NOT SPAM IT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Websites = [
     "https://www.energy.gov/ne/articles/advantages-and-challenges-nuclear-energy#:~:text=Nuclear%20energy%20protects%20air%20quality,medical%20field%20to%20space%20exploration.",
@@ -48,10 +50,11 @@ async def on_join(member):
 
 @client.event
 async def on_message(message):
-
+  
     if message.author == client.user:
       return
     
+    fishy_counter = 1
     member = message.author
 
     if message.content.startswith("&history"):
@@ -74,6 +77,15 @@ async def on_message(message):
         await member.create_dm()
         await member.dm_channel.send(
             "https://website-on-nuclear-power.harrytait.repl.co/index.html")
+
+    if "fish" or "Fish" in message.content:
+      fishy_counter += 1
+    
+    if message.content.startswith("&fish?"):
+      await member.create_dm()
+      await member.dm_channel.send("Fish has been said ",fishy_counter," since this bot has been online")
+      await message.channel.send("Fish has been said ",fishy_counter," since this bot has been online")
+
 
 
 client.run(Yes)
