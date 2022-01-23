@@ -41,25 +41,34 @@ def Readfile(fileName):
     return Very_Fishy_Quotes
     myFile.close()
 
+@client.event
+async def on_join(member):
+  await member.create_dm()
+  await member.dm_channel.send(f'Welcome to the codefest 2022 server, {member.name}')
 
 @client.event
 async def on_message(message):
 
+    if message.author == client.user:
+      return
+    
+    member = message.author
+
     if message.content.startswith("&history"):
         my_fishy = Readfile("history_about_nuclear_energy.txt")
-        await message.channel.send(random.choice(my_fishy))
+        await member.dm_channel.send(random.choice(my_fishy))
 
     if message.content.startswith("&website"):
-        await message.channel.send(Websites[random.randint(
+        await member.dm_channel.send(Websites[random.randint(
             0,
             len(Websites) - 1)])
 
     if message.content.startswith("&fact"):
         facts = Readfile("Facts about nuclear power.txt")
-        await message.channel.send(random.choice(facts))
+        await member.dm_channel.send(random.choice(facts))
 
     if message.content.startswith("&main"):
-        await message.channel.send(
+        await member.dm_channel.send(
             "https://website-on-nuclear-power.harrytait.repl.co/index.html")
 
 
