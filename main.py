@@ -96,14 +96,16 @@ async def on_message(message):
         addtoFile("Counter.txt",word)
       
 
-    if message.content.startswith("&fish"):
-      Fishy = 0
-      for word in ("Counter.txt"):
-        print("Debug_")
-        Fishy += 1
-      await member.create_dm()
-      await member.dm_channel.send("Fish has been said " +
-      str(Fishy) +
-      " since this bot has been online")
+    #if message.content.startswith("&fish"):
+      #Fishy = 0
+      #for word in ("Counter.txt"):
+        #print("Debug_")
+        #Fishy += 1
+      #await member.create_dm()
+      #await member.dm_channel.send("Fish has been said " +
+      #str(Fishy) +
+      #" since this bot has been online")
+      
       #await message.channel.send("Fish has been said " + fishy_counter + " since this bot has been online")
+      
 client.run(Yes))
