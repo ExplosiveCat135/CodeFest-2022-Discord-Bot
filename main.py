@@ -83,8 +83,8 @@ async def on_message(message):
     
     if message.content.startswith("&fish?"):
       await member.create_dm()
-      await member.dm_channel.send("Fish has been said ",fishy_counter," since this bot has been online")
-      await message.channel.send("Fish has been said ",fishy_counter," since this bot has been online")
+      await member.dm_channel.send("Fish has been said " + fishy_counter + " since this bot has been online")
+      await message.channel.send("Fish has been said " + fishy_counter + " since this bot has been online")
 
 
 
